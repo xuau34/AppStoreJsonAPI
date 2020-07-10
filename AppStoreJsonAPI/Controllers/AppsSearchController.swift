@@ -36,8 +36,7 @@ class AppsSearchController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         cell.backgroundColor = .green
-        //cell.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        
+        cell.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         return cell
     }
