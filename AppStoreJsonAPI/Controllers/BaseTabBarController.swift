@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+class BaseTabBarController: UITabBarController{
     
-    let viewControllerTypes = [UIViewController.self, UIViewController.self, AppsSearchController.self]
+    let viewControllerTypes = [UIViewController.self, AppsPageController.self, AppsSearchController.self]
     let titles = ["Today", "Apps", "Search"]
     let imageNames = ["today_icon", "apps", "search"]
     
@@ -28,6 +28,9 @@ class BaseTabBarController: UITabBarController {
             }
             return controllers
         }()
+        
+        // default tab
+        selectedIndex = 1
     }
     
     private func createNavController(viewController: UIViewController, title: String, imageName: String) -> UINavigationController {
