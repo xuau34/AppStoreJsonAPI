@@ -14,6 +14,13 @@ class AppSectionCell: UICollectionViewCell {
     
     let horizontalController = AppsHorizontalController()
     
+    var appFeed: JsonAppsFeed? {
+        didSet{
+            appSectionLabel.text = appFeed?.feed.title
+            horizontalController.appResults = appFeed?.feed.results
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

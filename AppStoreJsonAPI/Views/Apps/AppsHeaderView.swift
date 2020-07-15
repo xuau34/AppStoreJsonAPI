@@ -15,8 +15,6 @@ class AppsHeaderView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .purple
-        
         addSubview(headerHorizontalController.view)
         headerHorizontalController.view.fillSuperview()
     }

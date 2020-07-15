@@ -15,6 +15,8 @@
 		7171C0C024BDBB670038D3D6 /* AppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0BF24BDBB670038D3D6 /* AppsHeaderView.swift */; };
 		7171C0C224BDBCBB0038D3D6 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0C124BDBCBB0038D3D6 /* AppsHeaderHorizontalController.swift */; };
 		7171C0C424BDBE320038D3D6 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0C324BDBE320038D3D6 /* AppsHeaderCell.swift */; };
+		7171C0C624BE93AA0038D3D6 /* JsonAppsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0C524BE93AA0038D3D6 /* JsonAppsFeed.swift */; };
+		7171C0C824BEA88C0038D3D6 /* JsonSocialFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0C724BEA88C0038D3D6 /* JsonSocialFeed.swift */; };
 		71CC038E24BD9568000CCBF3 /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC038D24BD9568000CCBF3 /* AppsPageController.swift */; };
 		71CC039024BD957A000CCBF3 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC038F24BD957A000CCBF3 /* BaseCollectionViewController.swift */; };
 		71CC039224BD9D4F000CCBF3 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC039124BD9D4F000CCBF3 /* UILabel.swift */; };
@@ -44,6 +46,8 @@
 		7171C0BF24BDBB670038D3D6 /* AppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderView.swift; sourceTree = "<group>"; };
 		7171C0C124BDBCBB0038D3D6 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		7171C0C324BDBE320038D3D6 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
+		7171C0C524BE93AA0038D3D6 /* JsonAppsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonAppsFeed.swift; sourceTree = "<group>"; };
+		7171C0C724BEA88C0038D3D6 /* JsonSocialFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSocialFeed.swift; sourceTree = "<group>"; };
 		71CC038D24BD9568000CCBF3 /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		71CC038F24BD957A000CCBF3 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		71CC039124BD9D4F000CCBF3 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				71FCEDC324BD415100251689 /* JsonAppResults.swift */,
+				7171C0C524BE93AA0038D3D6 /* JsonAppsFeed.swift */,
+				7171C0C724BEA88C0038D3D6 /* JsonSocialFeed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,7 +327,9 @@
 				71CC039224BD9D4F000CCBF3 /* UILabel.swift in Sources */,
 				71CC039724BDA38C000CCBF3 /* AppsSectionCell.swift in Sources */,
 				71CC038E24BD9568000CCBF3 /* AppsPageController.swift in Sources */,
+				7171C0C624BE93AA0038D3D6 /* JsonAppsFeed.swift in Sources */,
 				71E4732824B7F7F600BA1FA1 /* ViewController.swift in Sources */,
+				7171C0C824BEA88C0038D3D6 /* JsonSocialFeed.swift in Sources */,
 				71CC039024BD957A000CCBF3 /* BaseCollectionViewController.swift in Sources */,
 				7171C0C224BDBCBB0038D3D6 /* AppsHeaderHorizontalController.swift in Sources */,
 				71CC039424BD9FE0000CCBF3 /* AppSectionCell.swift in Sources */,

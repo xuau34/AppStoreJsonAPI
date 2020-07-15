@@ -17,6 +17,8 @@ class AppsHorizontalController: BaseCollectionViewController {
     let lineSpacing: CGFloat = 10
     let cellWidthFactor: CGFloat = 0.95
     
+    var appResults: [JsonFeedResult]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,11 +32,12 @@ class AppsHorizontalController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appResults?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsSectionCell
+        cell.app = appResults?[indexPath.item]
         return cell
     }
     

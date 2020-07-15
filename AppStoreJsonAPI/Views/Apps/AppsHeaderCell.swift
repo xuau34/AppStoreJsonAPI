@@ -21,12 +21,19 @@ class AppsHeaderCell: UICollectionViewCell {
         return imageView
     }()
     
+    var feed: JsonSocialFeed? {
+        didSet{
+            companyLabel.text = feed?.name
+            titleLabel.text = feed?.tagline
+            imageView.sd_setImage(with: URL(string: feed?.imageUrl ?? ""), completed: nil)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        imageView.backgroundColor = .red
+    
         companyLabel.textColor = .blue
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 3    //!!!!!!!!!!!!!!!!Buggy
         
         let stackView = UIStackView(arrangedSubviews: [
             companyLabel, titleLabel, imageView
