@@ -11,7 +11,12 @@ import UIKit
 
 class AppsSearchController: BaseCollectionViewController, UISearchBarDelegate {
     
-    func handleAppResults(results: JsonAppResults) {
+    func handleAppResults(results: JsonAppResults?, err: Error?) {
+        if let err = err {
+            print("Failed on fetching feed:", err)
+            return
+        }
+        guard let results = results else {return}
         DispatchQueue.main.async {
             self.apps = results.results
             self.collectionView.reloadData()
@@ -80,6 +85,6 @@ class AppsSearchController: BaseCollectionViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        Service.shared.fetchITunesApps(term: searchText, completion: self.handleAppResults(results:))
+        Service.shared.fetchITunesApps(term: searchText, completion: self.handleAppResults)
     }
 }

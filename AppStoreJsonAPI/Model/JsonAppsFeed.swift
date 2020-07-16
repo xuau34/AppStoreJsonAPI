@@ -18,5 +18,5 @@ struct JsonFeed: Decodable {
 }
 
 struct JsonFeedResult: Decodable {
-    let name, artistName, artworkUrl100: String
+    let name, artistName, artworkUrl100, id: String
 }

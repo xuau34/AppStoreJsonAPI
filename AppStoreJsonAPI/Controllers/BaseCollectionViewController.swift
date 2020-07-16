@@ -13,6 +13,7 @@ class BaseCollectionViewController: UICollectionViewController, UICollectionView
     init() {
         //Open your eyes!!!
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.decelerationRate = .fast
     }
     
     required init?(coder: NSCoder) {

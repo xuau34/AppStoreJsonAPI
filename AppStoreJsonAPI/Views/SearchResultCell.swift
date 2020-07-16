@@ -62,6 +62,7 @@ class SearchResultCell: UICollectionViewCell {
         for _ in (0..<3) {
             let view = UIImageView()
             view.clipsToBounds = true
+            view.contentMode = .scaleAspectFill
             view.layer.cornerRadius = 4
             view.layer.borderWidth = 0.8
             view.layer.borderColor = CGColor(genericGrayGamma2_2Gray: 0.5, alpha: 0.5)

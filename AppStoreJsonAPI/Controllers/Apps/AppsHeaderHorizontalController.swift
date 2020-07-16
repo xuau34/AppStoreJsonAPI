@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppsHeaderHorizontalController: BaseCollectionViewController {
+class AppsHeaderHorizontalController: SnappingCollectionViewController {
     
     let cellId = "AppsHeaderHorizontalControllerCellId"
     let paddingForLeft: CGFloat = 12
@@ -21,6 +21,7 @@ class AppsHeaderHorizontalController: BaseCollectionViewController {
         super.viewDidLoad()
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = .white
+        collectionView.contentInset = .init(top: 0, left: paddingForLeft, bottom: paddingForBottom, right: 0)
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -42,7 +43,9 @@ class AppsHeaderHorizontalController: BaseCollectionViewController {
         return .init(width: width, height: view.frame.height - paddingForBottom)
     }
     
+    /*
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: paddingForLeft, bottom: paddingForBottom, right: 0)
+        return .init(top: 0, left: 0, bottom: paddingForBottom, right: 0)
     }
+    */
 }

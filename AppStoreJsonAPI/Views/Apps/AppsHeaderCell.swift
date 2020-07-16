@@ -18,6 +18,8 @@ class AppsHeaderCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
+        //imageView.clipsToBounds = true    // same to the masksTobounds
+        imageView.layer.masksToBounds = true    //Important when considering to clip
         return imageView
     }()
     
@@ -33,7 +35,7 @@ class AppsHeaderCell: UICollectionViewCell {
         super.init(frame: frame)
     
         companyLabel.textColor = .blue
-        titleLabel.numberOfLines = 3    //!!!!!!!!!!!!!!!!Buggy
+        titleLabel.numberOfLines = 2
         
         let stackView = UIStackView(arrangedSubviews: [
             companyLabel, titleLabel, imageView

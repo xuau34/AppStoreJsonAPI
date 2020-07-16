@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppsHorizontalController: BaseCollectionViewController {
+class AppsHorizontalController: SnappingCollectionViewController {
     
     let cellId = "AppsHorizontalController"
     
@@ -18,12 +18,14 @@ class AppsHorizontalController: BaseCollectionViewController {
     let cellWidthFactor: CGFloat = 0.95
     
     var appResults: [JsonFeedResult]?
+    var handleSelectApp: ((JsonFeedResult) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.backgroundColor = .white
         collectionView.register(AppsSectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.contentInset = .init(top: paddingForTopAndBottom, left: paddingForLeft, bottom: paddingForTopAndBottom, right: 0)
         
         // must cast to UICollectionViewFlowLayout to change the scrollDirection
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
@@ -46,10 +48,17 @@ class AppsHorizontalController: BaseCollectionViewController {
         let width = (view.frame.width - paddingForLeft) * cellWidthFactor
         return .init(width: width, height: height)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: paddingForTopAndBottom, left: paddingForLeft, bottom: paddingForTopAndBottom, right: 0)
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let app = appResults?[indexPath.item] else { return }
+        handleSelectApp?(app)
     }
+    
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: paddingForTopAndBottom, left: 0, bottom: paddingForTopAndBottom, right: 0)
+    }
+    */
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return lineSpacing

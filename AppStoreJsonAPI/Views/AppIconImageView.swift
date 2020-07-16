@@ -17,6 +17,14 @@ class AppIconImageView: UIImageView {
         clipsToBounds = true
     }
     
+    init(frame: CGRect = .zero, width: CGFloat = 64) {
+        super.init(frame: frame)
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        heightAnchor.constraint(equalToConstant: width).isActive = true
+        layer.cornerRadius = width / 6
+        clipsToBounds = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

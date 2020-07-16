@@ -43,7 +43,12 @@ class AppsPageController: BaseCollectionViewController {
         })
         
         dispatchGroup.enter()
-        Service.shared.fetchSocialFeed(completion: { socialFeeds in
+        Service.shared.fetchSocialFeed(completion: { socialFeeds, err in
+            if let err = err {
+                print("Failed on fetching social feed:", err)
+                return
+            }
+            guard let socialFeeds = socialFeeds else { return }
             self.dispatchGroup.leave()
             self.socialFeeds = socialFeeds
         })
@@ -53,11 +58,15 @@ class AppsPageController: BaseCollectionViewController {
                 self.activityIndicatorView.stopAnimating()
                 self.collectionView.reloadData()
             }
-            print(self.appFeeds.count)
         })
     }
     
-    func handleFetchFeed( appsFeed: JsonAppsFeed ) {
+    func handleFetchFeed( appsFeed: JsonAppsFeed?, err: Error? ) {
+        if let err = err {
+            print("Failed on fetching feed:", err)
+            return
+        }
+        guard let appsFeed = appsFeed else {return}
         DispatchQueue.main.async {
             self.appFeeds.append(appsFeed)
         }
@@ -75,6 +84,11 @@ class AppsPageController: BaseCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppSectionCell
         cell.appFeed = appFeeds[indexPath.item]
+        cell.horizontalController.handleSelectApp = { [weak self] app in
+            let appDetailController = AppDetailController()
+            appDetailController.appId = app.id
+            self?.navigationController?.pushViewController(appDetailController, animated: true)
+        }
         return cell
     }
     
