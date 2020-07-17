@@ -10,44 +10,19 @@ import UIKit
 
 class AppDetailController: BaseCollectionViewController {
     
+    // must set oneself's variable initialization first
+    init(appId: String) {
+        self.appId = appId
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let dispatchGroup = DispatchGroup()
     
-    var appId: String? {
-        didSet{
-            guard let appId = self.appId else { return }
-            
-            dispatchGroup.enter()
-            let appUrlString = "https://itunes.apple.com/lookup?id=\(appId)"
-            Service.shared.fetchJSONData(urlString: appUrlString, completion:{ (results: JsonAppResults?, err) in
-                if let err = err {
-                    print("Failed on getting app inside AppDetailcontroller:", err)
-                    return
-                }
-                self.app = results?.results.first
-                self.dispatchGroup.leave()
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            })
-            
-            dispatchGroup.enter()
-            let reviewUrlString = "https://itunes.apple.com/us/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json"
-            Service.shared.fetchJSONData(urlString: reviewUrlString, completion:{ (reviews: JsonReviews?, err) in
-                if let err = err {
-                    print("Failed on getting app inside AppDetailcontroller:", err)
-                    return
-                }
-                self.reviews = reviews
-                self.dispatchGroup.leave()
-            })
-            
-            dispatchGroup.notify(queue: .main, execute: {
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            })
-        }
-    }
+    private let appId: String
     var app: JsonApp?
     var reviews: JsonReviews?
     
@@ -63,6 +38,8 @@ class AppDetailController: BaseCollectionViewController {
         collectionView.register(UpperDetailCell.self, forCellWithReuseIdentifier: detailCellId)
         collectionView.register(ScreenShotsGroupCell.self, forCellWithReuseIdentifier: screenShotsCellId)
         collectionView.register(ReviewsGroupCell.self, forCellWithReuseIdentifier: reviewsCellId)
+        
+        fetchData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,5 +74,38 @@ class AppDetailController: BaseCollectionViewController {
             height = 500
         }
         return .init(width: view.frame.width, height: height)
+    }
+    
+    private func fetchData() {
+        dispatchGroup.enter()
+        let appUrlString = "https://itunes.apple.com/lookup?id=\(appId)"
+        Service.shared.fetchJSONData(urlString: appUrlString, completion:{ (results: JsonAppResults?, err) in
+            if let err = err {
+                print("Failed on getting app inside AppDetailcontroller:", err)
+                return
+            }
+            self.app = results?.results.first
+            self.dispatchGroup.leave()
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+        
+        dispatchGroup.enter()
+        let reviewUrlString = "https://itunes.apple.com/us/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json"
+        Service.shared.fetchJSONData(urlString: reviewUrlString, completion:{ (reviews: JsonReviews?, err) in
+            if let err = err {
+                print("Failed on getting app inside AppDetailcontroller:", err)
+                return
+            }
+            self.reviews = reviews
+            self.dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main, execute: {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
     }
 }

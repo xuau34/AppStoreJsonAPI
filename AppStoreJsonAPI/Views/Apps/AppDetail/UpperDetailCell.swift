@@ -39,8 +39,6 @@ class UpperDetailCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        iconImageView.backgroundColor = .blue
-        
         let stackView = VerticalStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
                 iconImageView, VerticalStackView(arrangedSubviews: [

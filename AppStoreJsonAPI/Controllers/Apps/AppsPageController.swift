@@ -85,8 +85,7 @@ class AppsPageController: BaseCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppSectionCell
         cell.appFeed = appFeeds[indexPath.item]
         cell.horizontalController.handleSelectApp = { [weak self] app in
-            let appDetailController = AppDetailController()
-            appDetailController.appId = app.id
+            let appDetailController = AppDetailController(appId: app.id)
             self?.navigationController?.pushViewController(appDetailController, animated: true)
         }
         return cell

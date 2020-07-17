@@ -68,23 +68,29 @@ class AppsSearchController: BaseCollectionViewController, UISearchBarDelegate {
     private func setupSearchbar() {
         navigationItem.searchController = self.searchController
         searchController.hidesNavigationBarDuringPresentation = true
-        searchController.obscuresBackgroundDuringPresentation = true
+        //searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchBar.delegate = self
     }
     
-    /*
+    
     // It still could fire multiple tasks, which will result in unmatch of the list and the search term
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBarTimer?.invalidate()
         searchBarTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {
             _ in
-            Service.shared.fetchITunesApps(term: searchText, completion: self.handleAppResults(results:))
+            Service.shared.fetchITunesApps(term: searchText, completion: self.handleAppResults)
         })
     }
-     */
+     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         Service.shared.fetchITunesApps(term: searchText, completion: self.handleAppResults)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let trackId = apps?[indexPath.item].trackId else { return }
+        let appDetailController = AppDetailController(appId: String(trackId))
+        navigationController?.pushViewController(appDetailController, animated: true)
     }
 }
