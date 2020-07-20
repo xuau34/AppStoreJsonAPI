@@ -20,8 +20,8 @@ class TodayCell: UICollectionViewCell {
         
         addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
-        imageView.constrainWidth(constant: 280)
-        imageView.constrainHeight(constant: 280)
+        imageView.constrainWidth(constant: 230)
+        imageView.constrainHeight(constant: 230)
         imageView.centerInSuperview()
     }
     
