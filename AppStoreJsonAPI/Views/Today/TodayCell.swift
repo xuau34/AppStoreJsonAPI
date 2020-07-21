@@ -8,9 +8,24 @@
 
 import UIKit
 
-class TodayCell: UICollectionViewCell {
+class TodayCell: BaseTodayCollectionViewCell {
     
+    override var todayItem: TodayItem? {
+        didSet{
+            categoryLabel.text =  todayItem?.category
+            titleLabel.text = todayItem?.title
+            imageView.image = todayItem?.image
+            descriptionLabel.text = todayItem?.description
+            backgroundColor = todayItem?.backgroundColor
+        }
+    }
+    
+    let categoryLabel = UILabel(text: "LIFE HACK", font: .boldSystemFont(ofSize: 16))
+    let titleLabel = UILabel(text: "Utilizing your Time", font: .boldSystemFont(ofSize: 20))
     let imageView = UIImageView(image: .init(imageLiteralResourceName: "garden"))
+    let descriptionLabel = UILabel(text: "All the tools and apps you need to intelligently organize your life the right way.", font: .systemFont(ofSize: 16), numberOfLines: 3)
+    
+    var topConstraint: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,11 +33,19 @@ class TodayCell: UICollectionViewCell {
         backgroundColor = .white
         layer.cornerRadius = 16
         
-        addSubview(imageView)
+        let imageContainer = UIView()
+        imageContainer.addSubview(imageView)
+        imageView.centerInSuperview(size: .init(width: 230, height: 230))
         imageView.contentMode = .scaleAspectFill
-        imageView.constrainWidth(constant: 230)
-        imageView.constrainHeight(constant: 230)
-        imageView.centerInSuperview()
+        imageView.layer.masksToBounds = true
+        
+        let stackView = VerticalStackView(arrangedSubviews: [
+            categoryLabel, titleLabel, imageContainer, descriptionLabel
+        ], spacing: 12)
+        addSubview(stackView)
+        stackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 24, left: 24, bottom: 24, right: 24))
+        topConstraint = stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24)
+        topConstraint?.isActive = true
     }
     
     required init?(coder: NSCoder) {

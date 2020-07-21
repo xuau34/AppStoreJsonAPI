@@ -10,17 +10,24 @@ import UIKit
 
 class FullScreenController: UITableViewController {
     
+    let fullScreenHeaderCell = FullScreenHeaderCell(style: .default, reuseIdentifier: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        
+        let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        tableView.contentInset = .init(top: 0, left: 0, bottom: height+5, right: 0)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            return FullScreenHeaderCell()
+            return fullScreenHeaderCell
         }
         let cell = FullScreenCell()
         return cell

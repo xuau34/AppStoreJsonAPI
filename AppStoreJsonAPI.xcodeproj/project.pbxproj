@@ -19,6 +19,13 @@
 		7101F8F124C056EE00C21348 /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7101F8F024C056EE00C21348 /* ReviewsCell.swift */; };
 		7101F8F324C066EC00C21348 /* JsonReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7101F8F224C066EC00C21348 /* JsonReviews.swift */; };
 		71148F5024C1BB64005B3418 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71148F4F24C1BB64005B3418 /* TodayCell.swift */; };
+		711804E524C686F6001674A7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804E424C686F6001674A7 /* UIImageView+.swift */; };
+		711804E724C69213001674A7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804E624C69213001674A7 /* TodayItem.swift */; };
+		711804E924C6BC2B001674A7 /* TodayMultipleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804E824C6BC2B001674A7 /* TodayMultipleCell.swift */; };
+		711804EB24C6BFC8001674A7 /* BaseTodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804EA24C6BFC8001674A7 /* BaseTodayCollectionViewCell.swift */; };
+		711804ED24C6C439001674A7 /* TodayMultipleCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804EC24C6C439001674A7 /* TodayMultipleCellController.swift */; };
+		711804EF24C6C52C001674A7 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804EE24C6C52C001674A7 /* TodayMultipleAppCell.swift */; };
+		711804F124C6E4BE001674A7 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711804F024C6E4BE001674A7 /* BackEnabledNavigationController.swift */; };
 		7167AC6124B827FF00A9634D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7167AC6024B827FF00A9634D /* SearchResultCell.swift */; };
 		7171C0BE24BDB1C20038D3D6 /* GetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0BD24BDB1C20038D3D6 /* GetButton.swift */; };
 		7171C0C024BDBB670038D3D6 /* AppsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7171C0BF24BDBB670038D3D6 /* AppsHeaderView.swift */; };
@@ -67,6 +74,13 @@
 		7101F8F024C056EE00C21348 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		7101F8F224C066EC00C21348 /* JsonReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReviews.swift; sourceTree = "<group>"; };
 		71148F4F24C1BB64005B3418 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
+		711804E424C686F6001674A7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		711804E624C69213001674A7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
+		711804E824C6BC2B001674A7 /* TodayMultipleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleCell.swift; sourceTree = "<group>"; };
+		711804EA24C6BFC8001674A7 /* BaseTodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCollectionViewCell.swift; sourceTree = "<group>"; };
+		711804EC24C6C439001674A7 /* TodayMultipleCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleCellController.swift; sourceTree = "<group>"; };
+		711804EE24C6C52C001674A7 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
+		711804F024C6E4BE001674A7 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 		7167AC6024B827FF00A9634D /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		7171C0BD24BDB1C20038D3D6 /* GetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetButton.swift; sourceTree = "<group>"; };
 		7171C0BF24BDBB670038D3D6 /* AppsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderView.swift; sourceTree = "<group>"; };
@@ -133,6 +147,7 @@
 				71CC039124BD9D4F000CCBF3 /* UILabel.swift */,
 				71F0236024BFF27A004460C2 /* SnappingCollectionViewLayout.swift */,
 				7101F8E224C035F300C21348 /* UIStackView+.swift */,
+				711804E424C686F6001674A7 /* UIImageView+.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -145,6 +160,7 @@
 				7167AC6024B827FF00A9634D /* SearchResultCell.swift */,
 				71CC039A24BDAEAF000CCBF3 /* AppIconImageView.swift */,
 				7171C0BD24BDB1C20038D3D6 /* GetButton.swift */,
+				711804EA24C6BFC8001674A7 /* BaseTodayCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +170,7 @@
 			children = (
 				71B6BFB624C1B65A008B731B /* TodayController.swift */,
 				71CD4E7224C52B7D002D946A /* FullScreenController.swift */,
+				711804EC24C6C439001674A7 /* TodayMultipleCellController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -164,6 +181,8 @@
 				71148F4F24C1BB64005B3418 /* TodayCell.swift */,
 				71CD4E7424C53442002D946A /* FullScreenCell.swift */,
 				71CD4E7624C545E5002D946A /* FullScreenHeaderCell.swift */,
+				711804E824C6BC2B001674A7 /* TodayMultipleCell.swift */,
+				711804EE24C6C52C001674A7 /* TodayMultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -244,6 +263,7 @@
 				71E4733724B7F84200BA1FA1 /* BaseTabBarController.swift */,
 				71CC038F24BD957A000CCBF3 /* BaseCollectionViewController.swift */,
 				71F0236524C007E9004460C2 /* SnappingCollectionViewController.swift */,
+				711804F024C6E4BE001674A7 /* BackEnabledNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +297,7 @@
 				7171C0C524BE93AA0038D3D6 /* JsonAppsFeed.swift */,
 				7171C0C724BEA88C0038D3D6 /* JsonSocialFeed.swift */,
 				7101F8F224C066EC00C21348 /* JsonReviews.swift */,
+				711804E624C69213001674A7 /* TodayItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,6 +429,7 @@
 				71CD4E7524C53442002D946A /* FullScreenCell.swift in Sources */,
 				71E4733824B7F84200BA1FA1 /* BaseTabBarController.swift in Sources */,
 				7101F8F124C056EE00C21348 /* ReviewsCell.swift in Sources */,
+				711804ED24C6C439001674A7 /* TodayMultipleCellController.swift in Sources */,
 				7171C0C424BDBE320038D3D6 /* AppsHeaderCell.swift in Sources */,
 				7101F8F324C066EC00C21348 /* JsonReviews.swift in Sources */,
 				71CC039224BD9D4F000CCBF3 /* UILabel.swift in Sources */,
@@ -423,6 +445,7 @@
 				7171C0C824BEA88C0038D3D6 /* JsonSocialFeed.swift in Sources */,
 				71CC039024BD957A000CCBF3 /* BaseCollectionViewController.swift in Sources */,
 				7171C0C224BDBCBB0038D3D6 /* AppsHeaderHorizontalController.swift in Sources */,
+				711804EF24C6C52C001674A7 /* TodayMultipleAppCell.swift in Sources */,
 				71B6BFB724C1B65A008B731B /* TodayController.swift in Sources */,
 				71CC039424BD9FE0000CCBF3 /* AppSectionCell.swift in Sources */,
 				71E4732424B7F7F600BA1FA1 /* AppDelegate.swift in Sources */,
@@ -431,6 +454,7 @@
 				71CC039B24BDAEAF000CCBF3 /* AppIconImageView.swift in Sources */,
 				71F0236924C0302A004460C2 /* UpperDetailCell.swift in Sources */,
 				71CD4E7724C545E5002D946A /* FullScreenHeaderCell.swift in Sources */,
+				711804E524C686F6001674A7 /* UIImageView+.swift in Sources */,
 				7167AC6124B827FF00A9634D /* SearchResultCell.swift in Sources */,
 				7101EF9B24BBF83E0030EEE7 /* Service.swift in Sources */,
 				71148F5024C1BB64005B3418 /* TodayCell.swift in Sources */,
@@ -439,9 +463,13 @@
 				71F0236424C003B8004460C2 /* AppDetailController.swift in Sources */,
 				71CC039924BDA437000CCBF3 /* AppsHorizontalController.swift in Sources */,
 				71FCEDC424BD415100251689 /* JsonAppResults.swift in Sources */,
+				711804F124C6E4BE001674A7 /* BackEnabledNavigationController.swift in Sources */,
 				7171C0C024BDBB670038D3D6 /* AppsHeaderView.swift in Sources */,
+				711804EB24C6BFC8001674A7 /* BaseTodayCollectionViewCell.swift in Sources */,
+				711804E724C69213001674A7 /* TodayItem.swift in Sources */,
 				7101EF9924BBF0F30030EEE7 /* VerticalStackView.swift in Sources */,
 				71CD4E7324C52B7D002D946A /* FullScreenController.swift in Sources */,
+				711804E924C6BC2B001674A7 /* TodayMultipleCell.swift in Sources */,
 				7101F8EF24C0560700C21348 /* ReviewsCollectionController.swift in Sources */,
 				7101EF9824BBF0F30030EEE7 /* UIView+Layout.swift in Sources */,
 				71E4732624B7F7F600BA1FA1 /* SceneDelegate.swift in Sources */,
